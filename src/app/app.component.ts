@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'signals';
+
+  count = signal<number>(1);
+
+  increaseCount(){
+    this.count.update((val) => val + 1);
+  }
+
+  decreaseCount(){
+    this.count.update((val) => val - 1);
+  }
+
 }
